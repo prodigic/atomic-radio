@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Toggle atomic-radio'
+      'command': 'atomic-radio:toggle'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'atomic-radio'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'atomic-radio:toggle'
+        }
+      ]
+    ]
+  }
+]

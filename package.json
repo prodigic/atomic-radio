@@ -1,0 +1,17 @@
+{
+  "name": "atomic-radio",
+  "main": "./lib/atomic-radio",
+  "version": "0.0.1",
+  "description": "A radio player hosted as an atom plugin. currently supports SOMAFM",
+  "keywords": ["UI","radio"],
+  "activationCommands": {
+    "atom-workspace": "atomic-radio:toggle"
+  },
+  "repository": "https://github.com/atom/atomic-radio",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
