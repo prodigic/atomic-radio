@@ -11,7 +11,7 @@ module.exports = AtomicRadio =
   config:
     station:
       type: 'string'
-      default: "SOMAFM:SF1033"
+      default: "RADIO:VALENCIA"
       enum: Object.keys(stations)
     auto_play_on_startup:
       type: 'boolean'
@@ -19,9 +19,6 @@ module.exports = AtomicRadio =
     use_minimal_player_layout:
       type: 'boolean'
       default: false
-
-  constructor: ->
-    @.station.enum = configObject.keys(@stations)
 
   activate: (state) ->
     @atomicRadioView = new AtomicRadioView(state.atomicRadioViewState)
@@ -31,7 +28,8 @@ module.exports = AtomicRadio =
     # Register command that toggles this view
     @subscriptions.add atom.commands.add 'atom-workspace', 'atomic-radio:toggle': => @toggle()
     @subscriptions.add atom.commands.add 'atom-workspace', 'atomic-radio:play': => @playToggle()
-    @subscriptions.add atom.commands.add 'atom-workspace', 'atomic-radio:bump': => @bumpStation()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'atomic-radio:prev': => @prevStation()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'atomic-radio:next': => @nextStation()
 
   deactivate: ->
     @modalPanel.destroy()
@@ -56,5 +54,8 @@ module.exports = AtomicRadio =
       console.log 'AtomicRadio pause'
       @atomicRadioView.pause()
 
-  bumpStation: ->
-    @atomicRadioView.bumpStation()
+  nextStation: ->
+    @atomicRadioView.nextStation()
+
+  prevStation: ->
+    @atomicRadioView.prevStation()

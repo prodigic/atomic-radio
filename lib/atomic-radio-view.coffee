@@ -1,17 +1,19 @@
+$ = jQuery = require 'jquery'
 
 module.exports =
 class AtomicRadioView
 
   radioDial: null
+  channels: require('./stations').channels
   stations: require('./stations').stations
 
   constructor: (serializedState) ->
+
     # Create root element
     # TODO replace dom code with library
     @radioDial = Object.keys(@stations)
 
-    @element = document.createElement('div')
-    @element.classList.add('atomic-radio')
+    @$element = $('<div class="atomic-radio"></div>')
 
     @audio = document.createElement('audio')
     @audio.classList.add("audio-element")
@@ -41,32 +43,31 @@ class AtomicRadioView
     ident_right = document.createElement('div')
     ident_right.className = "audio-station-ident-right"
 
-    ident_station = document.createElement('img')
-    ident_station.src = "http://somafm.com/linktous/150x50sfm1_1.gif"
-    ident_right.appendChild(ident_station)
+    @ident_station = document.createElement('img')
+    @ident_station.src=@channels["SOMAFM"].image
+    ident_right.appendChild(@ident_station)
+
     @ident_description = document.createElement('div')
     @ident_description.textContent = @stations["SOMAFM:SF1033"].description
     @ident_description.className = "audio-station-description"
     ident_right.appendChild(@ident_description)
 
-
     ident.appendChild(ident_left);
     ident.appendChild(ident_right);
 
     message.appendChild(ident)
-    message.appendChild(audio_container)
-
-    @element.appendChild(message)
+    @$element.append(message)
+    @$element.append(audio_container)
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
 
   # Tear down any state and detach
   destroy: ->
-    @element.remove()
+    @$element.remove()
 
   getElement: ->
-    @element
+    @$element
 
   play: ->
     @audio.play()
@@ -77,14 +78,21 @@ class AtomicRadioView
   pause: ->
     @audio.pause()
 
-  bumpStation: () ->
+  nextStation: () ->
     [nowplaying, nextup, rest... ] = @radioDial
     @radioDial = [nextup, rest..., nowplaying]
     @setStation(nextup)
 
+  prevStation: () ->
+    [nowplaying, rest..., previous ] = @radioDial
+    @radioDial = [previous, nowplaying,  rest...]
+    @setStation(previous)
+
   setStation: (ident) ->
+    channel = ident.split(":")[0]
     console.log(ident, @stations[ident].stream_url, @radioDial)
     @audio.src = @stations[ident].stream_url
     @ident_img.src=@stations[ident].stream_image
+    @ident_station.src=@channels[channel].image
     @ident_description.textContent=@stations[ident].description
     @play()

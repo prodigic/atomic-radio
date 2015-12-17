@@ -2,7 +2,7 @@
   "name": "atomic-radio",
   "main": "./lib/atomic-radio",
   "version": "0.0.1",
-  "description": "A radio player hosted as an atom plugin. currently supports SOMAFM",
+  "description": "A very simple radio player hosted as an atom plugin. currently supports SOMAFM, Radio Valencia, and some BBC radio stations",
   "keywords": ["UI","radio"],
   "activationCommands": {
     "atom-workspace": "atomic-radio:toggle"
@@ -13,5 +13,6 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
+    "jquery": "^2.1.4"
   }
 }
