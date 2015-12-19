@@ -1,6 +1,6 @@
 AtomicRadioView = require './atomic-radio-view'
 
-{stations} =  require('./stations')
+{channels, stations} =  require './metadata'
 {CompositeDisposable} = require 'atom'
 
 module.exports = AtomicRadio =
@@ -30,6 +30,7 @@ module.exports = AtomicRadio =
     @subscriptions.add atom.commands.add 'atom-workspace', 'atomic-radio:play': => @playToggle()
     @subscriptions.add atom.commands.add 'atom-workspace', 'atomic-radio:prev': => @prevStation()
     @subscriptions.add atom.commands.add 'atom-workspace', 'atomic-radio:next': => @nextStation()
+    @subscriptions.add atom.commands.add 'atom-workspace', 'atomic-radio:tiny': => @toggleTinyMode()
 
   deactivate: ->
     @modalPanel.destroy()
@@ -59,3 +60,6 @@ module.exports = AtomicRadio =
 
   prevStation: ->
     @atomicRadioView.prevStation()
+
+  toggleTinyMode: ->
+    @atomicRadioView.toggleTinyMode()

@@ -8,7 +8,7 @@
 # For more detailed documentation see
 # https://atom.io/docs/latest/behind-atom-keymaps-in-depth
 'atom-workspace':
-  'ctrl-alt-r': 'atomic-radio:toggle'
-  'ctrl-alt-p': 'atomic-radio:prev'
-  'ctrl-alt-n': 'atomic-radio:next'
-  'ctrl-alt-space': 'atomic-radio:play'
+  'ctrl-alt-b': 'atomic-radio:toggle'
+  'ctrl-alt-z': 'atomic-radio:prev'
+  'ctrl-alt-x': 'atomic-radio:next'
+  'ctrl-alt-n': 'atomic-radio:tiny'

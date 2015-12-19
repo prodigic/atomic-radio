@@ -4,16 +4,20 @@
 // for a full listing of what's available.
 @import "ui-variables";
 
+.tiny {
+  visibility:hidden;
+  display: none;
+}
+
 atom-panel.modal.overlay.from-top {
   padding: 0;
+  padding-bottom:5px;
   width: initial;
   color:#333;
   background-color:black;
-
   .atomic-radio {
     background: black;
     .message {
-      padding: 25px;
       color: #95B9C7;
 
       .audio-station-ident {
@@ -22,6 +26,7 @@ atom-panel.modal.overlay.from-top {
           float:left;
           width:160px;
           height:160px;
+          margin: 0em 2em 1em 1em;
 
           img {
             width: 148px;
@@ -38,7 +43,11 @@ atom-panel.modal.overlay.from-top {
             margin:10px;
             float:right;
           }
-
+          .station-name {
+            color: green;
+            display: block;
+            padding: 1em;
+          }
           .audio-station-description {
             padding:1em ;
             width:300px;
