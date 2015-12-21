@@ -7,6 +7,13 @@
   "activationCommands": {
     "atom-workspace": "atomic-radio:toggle"
   },
+  "consumedServices": {
+    "status-bar": {
+      "versions": {
+        "^1.0.0": "consumeStatusBar"
+      }
+    }
+  },
   "repository": "https://github.com/atom/atomic-radio",
   "license": "MIT",
   "engines": {

@@ -1,3 +1,4 @@
+$ = jQuery = require 'jquery'
 AtomicRadioView = require './atomic-radio-view'
 
 {channels, stations} =  require './metadata'
@@ -36,6 +37,9 @@ module.exports = AtomicRadio =
     @modalPanel.destroy()
     @subscriptions.dispose()
     @atomicRadioView.destroy()
+
+  consumeStatusBar: (statusBar) ->
+    @statusBarTile = statusBar.addLeftTile(item: $('<div>statusBar hoorah!</div>'), priority: 100)
 
   serialize: ->
     atomicRadioViewState: @atomicRadioView.serialize()

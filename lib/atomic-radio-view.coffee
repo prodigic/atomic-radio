@@ -4,11 +4,11 @@ module.exports =
 class AtomicRadioView
 
   radioDial: null
+  audio : null
+
   channels: require('./metadata').channels
   stations: require('./metadata').stations
-
-  element : $ require './template.js'
-  audio : null
+  element : $ require('./template')
 
   constructor: (serializedState) ->
     @radioDial = Object.keys(@stations)
