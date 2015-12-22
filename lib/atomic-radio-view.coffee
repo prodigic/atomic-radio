@@ -12,7 +12,7 @@ class AtomicRadioView
 
   constructor: (serializedState) ->
     @radioDial = Object.keys(@stations)
-    @audio = $('audio.audio-element',@element).get(0)
+    @audio     = $('audio.audio-element',@element).get(0)
     @setStation @radioDial[0]
 
   # Returns an object that can be retrieved when package is activated
@@ -54,6 +54,7 @@ class AtomicRadioView
     $('.channel-ident-image' , @element ).attr('src',@channels[channel].image)
     $('.station-ident-image'  , @element ).attr('src',@stations[station].stream_image)
     $('span.station-name'  , @element ).html(@stations[station].title)
+    $('span.channel-name'  , @element ).html(@channels[channel].title)
     $('span.station-description'  , @element ).html(@stations[station].description)
 
     $('audio.audio-element ' , @element ).attr('src',@stations[station].stream_url)
