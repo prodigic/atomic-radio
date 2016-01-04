@@ -27,6 +27,12 @@ module.exports = AtomicRadio =
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
     @subscriptions = new CompositeDisposable
     # Register command that toggles this view
+
+    # TODO: 6 presets
+    # TODO: All stations in Menu
+    # TODO: << >> [] 
+    # TODO: skinnable
+
     @subscriptions.add atom.commands.add 'atom-workspace', 'atomic-radio:toggle': => @toggle()
     @subscriptions.add atom.commands.add 'atom-workspace', 'atomic-radio:play': => @playToggle()
     @subscriptions.add atom.commands.add 'atom-workspace', 'atomic-radio:prev': => @prevStation()
