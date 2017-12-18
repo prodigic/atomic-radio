@@ -51,11 +51,11 @@ class AtomicRadioView
     channel = station.split(":")[0]
     console.log channel, station, @stations[station].stream_url, @radioDial
 
-    $('.channel-ident-image' , @element ).attr('src',@channels[channel].image)
-    $('.station-ident-image'  , @element ).attr('src',@stations[station].stream_image)
-    $('span.station-name'  , @element ).html(@stations[station].title)
-    $('span.channel-name'  , @element ).html(@channels[channel].title)
-    $('span.station-description'  , @element ).html(@stations[station].description)
+    $('img.channel-ident-image' , @element ).attr('src',@channels[channel].image)
+    $('img.station-ident-image'  , @element ).attr('src',@stations[station].stream_image)
+    $('div.station-name'  , @element ).html(@stations[station].title)
+    $('div.channel-name'  , @element ).html(@channels[channel].title)
+    $('div.station-description'  , @element ).html(@stations[station].description)
 
     $('audio.audio-element ' , @element ).attr('src',@stations[station].stream_url)
 

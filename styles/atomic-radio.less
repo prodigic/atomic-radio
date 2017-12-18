@@ -10,67 +10,113 @@
 
 atom-panel.modal.overlay.from-top {
   padding: 0;
-  padding-bottom:5px;
   width: initial;
-  color:green;
-  background-color:black;
-  opacity: 0.875;
-text-shadow: none;
-  .atomic-radio {
-    background: black;
+  text-shadow: none;
 
+  .atomic-radio {
     .message {
 
-      .audio-station-ident {
+      .frame {
+        display: flex;
+        flex-direction: column;
+        background-color: black;
 
-        .audio-station-ident-left {
-          float:left;
-          width:160px;
-          height:160px;
-          margin: 0em 2em 1em 1em;
+        .branding {
+          display: flex;
+          background: #FAFAFA;
+          font-size: large;
+          justify-content: space-between;
+          align-items: baseline;
+          font-size: 12px;
 
-          img {
-            width: 148px;
-            margin:10px;
-          }
-        }
-
-        .audio-station-ident-right {
-          float:right;
-          padding:10px;
-
-          img {
-            max-height: 50px;
-            margin:10px;
-            float:right;
-            display: none;
+          .plugin-name {
+            flex-grow: 1;
+            padding-left: 5px;
+            font-size: 14px;
           }
           .station-name {
-            color: red;
-            font-size: large;
-            display: block;
-            text-align: right;
+            padding: 2px;
+            color: #333;
+            font-size: 10px;
           }
+
           .channel-name {
-            padding: 0.3em 0;
-            display: block;
-            text-align: right;
+            padding:2px;
+            padding-right: 5px;
+          }
 
-          }
-          .audio-station-description {
-            width:300px;
-            height: 90px;
-          }
         }
 
-        .audio-element {
-          margin-top:25px;
+        .station-container {
+          display: flex;
+          flex-direction: row;
+          flex-grow: 1;
+          min-height: 160px;
+
+          .station-ident {
+            display: flex;
+            padding: 20px;
+
+            .station-ident-image {
+              max-width:120px;
+              width:auto;
+              max-height:120px;
+              height:auto;
+            }
+          }
+
+          .details {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+
+            .titles {
+              display: flex;
+              flex-direction: column;
+
+              .station-name {
+                display: flex;
+                color: white;
+                font-size: 48px;
+
+              }
+
+              .channel-ident-image {
+                display: none;
+                max-height: 25px;
+              }
+
+              .channel-name {
+                display: flex;
+                font-size: 24px;
+              }
+
+            }
+
+            .station-description {
+              color: white;
+              display: flex;
+              font-size: 14px;
+              max-width: 300px;
+              flex-grow: 1;
+            }
+
+          }
+
         }
 
+        .audio-element-container {
+          display: flex;
+          flex-direction: row;
+          background: #FAFAFA;
+
+          .horizontal-spacer {
+            display: flex;
+            flex-grow: 1;
+          }
+
+        }
       }
-
     }
   }
-
-
 }
